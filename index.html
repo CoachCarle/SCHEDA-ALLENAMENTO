@@ -126,6 +126,14 @@ header{
 }
 .suggest b{color:var(--accent);flex-shrink:0}
 
+.variant-tag{font-size:.72rem;color:var(--accent);font-weight:600;margin-top:2px}
+.variant-list{display:flex;flex-wrap:wrap;gap:8px}
+.variant-chip{
+  padding:10px 14px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);
+  font-size:.85rem;color:var(--text);font-weight:600;
+}
+.variant-chip.active{background:var(--accent);border-color:var(--accent);color:#1a1205}
+
 .sets{padding:0 10px 10px}
 .set-row{
   display:grid;grid-template-columns:26px 1fr 1fr var(--tap);
@@ -261,14 +269,14 @@ const PROGRAM = [
     id:"lun", tab:"Lun", tabSub:"Upper A", title:"Upper A", sub:"Lunedì · 70-85 min",
     ex:[
       {id:"l0", name:"Plank scapolare", sets:2, reps:"10-15", load:"light", loadTxt:"Tecnico", rest:60, muscle:"Spalle", tip:"Attivazione del serrato anteriore prima del lavoro pesante: spingi il pavimento lontano da te, arrotondando leggermente la parte alta della schiena.", bw:true},
-      {id:"l1", name:"Spinte manubri 30°", sets:3, reps:"6-10", load:"heavy",  loadTxt:"Pesante",       rest:165, muscle:"Petto",       tip:"RIR 1-2. Movimento principale per il petto alto: usa un carico che ti permetta di spingere forte senza perdere ROM/controllo."},
+      {id:"l1", name:"Spinte manubri 30°", sets:3, reps:"6-10", load:"heavy",  loadTxt:"Pesante",       rest:165, muscle:"Petto",       variants:["Smith Machine 30°"], tip:"RIR 1-2. Movimento principale per il petto alto: usa un carico che ti permetta di spingere forte senza perdere ROM/controllo."},
       {id:"l2", name:"Lat Machine",         sets:3, reps:"6-10", load:"heavy",  loadTxt:"Pesante",       rest:150, muscle:"Dorso",       tip:"RIR 1-2. Non inseguire il peso: depressione scapolare e gomiti verso il fianco."},
       {id:"l3", name:"Dip",                 sets:3, reps:"6-10", load:"heavy",  loadTxt:"Pesante",       rest:165, muscle:"Petto",       tip:"RIR 1-2. Se fai 10 reps facilmente, aggiungi zavorra.", bw:true},
       {id:"l4", name:"Low Row",             sets:3, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:120, muscle:"Dorso",       tip:"RIR 1-2. Cerca ROM completo e forte adduzione delle scapole."},
       {id:"l5", name:"Alzate laterali cavo",sets:3, reps:"12-20",load:"light",  loadTxt:"Medio/leggero", rest:75,  muscle:"Spalle",      tip:"RIR 0-2. Qui non serve molto peso: tensione continua e tecnica pulita."},
       {id:"l6", name:"Pec Deck / Croci",    sets:2, reps:"10-15",load:"light",  loadTxt:"Medio",         rest:105, muscle:"Petto",       tip:"RIR 0-2. Ottimo esercizio per accumulare stimolo sul petto senza dover caricare enormemente."},
       {id:"l7", name:"Pushdown",            sets:2, reps:"10-15",load:"light",  loadTxt:"Medio",         rest:105, muscle:"Tricipiti",   tip:"RIR 0-2. Puoi avvicinarti molto al cedimento."},
-      {id:"l8", name:"Curl inclinato",      sets:2, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:105, muscle:"Bicipiti",    tip:"RIR 1-2. Grande allungamento del bicipite: non sacrificare il ROM per il peso."}
+      {id:"l8", name:"Hammer Curl seduto",      sets:2, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:105, muscle:"Bicipiti",    tip:"RIR 1-2. Presa neutra: lavoro su bicipite brachiale e avambraccio, polso fermo per tutto il movimento."}
     ]
   },
   {
@@ -279,6 +287,7 @@ const PROGRAM = [
       {id:"m3", name:"Leg Extension",     sets:2, reps:"10-15",  load:"light",  loadTxt:"Medio",         rest:105, muscle:"Quadricipiti", tip:"RIR 0-2. Ottima per aggiungere volume ai quadricipiti con poca fatica sistemica."},
       {id:"m4", name:"Calf Raise",        sets:3, reps:"8-15",   load:"medium", loadTxt:"Medio-pesante", rest:105, muscle:"Polpacci",     tip:"RIR 1-2. Pausa in allungamento e ROM completo."},
       {id:"m5", name:"Hanging Leg Raise", sets:3, reps:"8-15",   load:"light",  loadTxt:"Medio",         rest:90,  muscle:"Core",         tip:"RIR 1-2. Evita di trasformarlo in uno slancio.", bw:true},
+      {id:"m7", name:"Russian Twist con palla medica (per lato)", sets:2, reps:"10-15", load:"medium", loadTxt:"Medio", rest:75, muscle:"Core", tip:"RIR 2-3. Ruota dal busto mantenendo il controllo del bacino: il movimento parte dagli obliqui, non dalle braccia."},
       {id:"m6", name:"L-Sit progression", sets:3, reps:"10-20s", load:"light",  loadTxt:"Tecnico",       rest:75,  muscle:"Core",         tip:"Non cercare il cedimento assoluto: qualità della posizione e controllo.", bw:true, unit:"sec"}
     ]
   },
@@ -286,15 +295,14 @@ const PROGRAM = [
     id:"gio", tab:"Gio", tabSub:"Upper B", title:"Upper B + Muscle-Up", sub:"Giovedì · 80-95 min",
     note:"La parte esplosiva viene prima dell'ipertrofia: non devi arrivare stanco alle trazioni esplosive.",
     ex:[
-      {id:"g1", name:"Muscle-Up prog. / Chest-to-Bar esplosive", sets:3, reps:"2-5",  load:"light",  loadTxt:"Tecnico/esplosivo", rest:150, muscle:"Dorso",     tip:"RIR non fondamentale. Devi terminare la serie quando cala nettamente la velocità.", bw:true, unit:"sec"},
       {id:"g2", name:"Trazioni esplosive",       sets:3, reps:"3-4",  load:"light",  loadTxt:"Esplosivo",     rest:165, muscle:"Dorso",     tip:"Corpo libero o minima zavorra. Massima accelerazione, niente cedimento.", bw:true},
       {id:"g3", name:"Pike Push-Up / DB Shoulder Press", sets:3, reps:"6-10", load:"heavy", loadTxt:"Pesante", rest:150, muscle:"Spalle",   tip:"RIR 1-2. Scegli il DB Shoulder Press se vuoi maggiore facilità nel sovraccarico progressivo."},
       {id:"g4", name:"Chest Press",              sets:3, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:120, muscle:"Petto",   tip:"RIR 1-2. Qui puoi spingerti vicino al cedimento con maggiore sicurezza."},
       {id:"g5", name:"Lat Machine neutra",       sets:3, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:120, muscle:"Dorso",   tip:"RIR 1-2. Focus sui dorsali, senza trasformarla in una gara di carico."},
-      {id:"g6", name:"Straight Bar Dip",         sets:2, reps:"6-10", load:"heavy",  loadTxt:"Pesante",       rest:150, muscle:"Petto",   tip:"RIR 1-2. Molto importante per la fase finale del Muscle-Up.", bw:true},
+      {id:"g6", name:"Dips",         sets:2, reps:"6-10", load:"heavy",  loadTxt:"Pesante",       rest:150, muscle:"Petto",   tip:"RIR 1-2. Molto importante per la fase finale del Muscle-Up.", bw:true},
       {id:"g7", name:"Alzate laterali",          sets:3, reps:"12-20",load:"light",  loadTxt:"Medio/leggero", rest:75,  muscle:"Spalle",  tip:"RIR 0-2."},
       {id:"g8", name:"Reverse Pec Deck / Face Pull", sets:2, reps:"12-20", load:"light", loadTxt:"Medio",     rest:75,  muscle:"Spalle",  tip:"RIR 0-2. Focus deltoide posteriore / parte alta schiena."},
-      {id:"g9", name:"Hammer Curl",              sets:2, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:105, muscle:"Bicipiti",tip:"RIR 1-2."},
+      {id:"g9", name:"Biceps machine",              sets:2, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:105, muscle:"Bicipiti",tip:"RIR 1-2."},
       {id:"g10",name:"Overhead Triceps Extension",sets:2,reps:"10-15",load:"light",  loadTxt:"Medio",         rest:105, muscle:"Tricipiti",tip:"RIR 0-2."}
     ]
   },
@@ -302,7 +310,7 @@ const PROGRAM = [
     id:"ven", tab:"Ven", tabSub:"Lower B", title:"Lower B", sub:"Venerdì · 65-80 min",
     ex:[
       {id:"v1", name:"Romanian Deadlift",              sets:3, reps:"6-10", load:"heavy",  loadTxt:"Pesante",       rest:165, muscle:"Femorali",     tip:"RIR 1-2. Non è una gara di peso: mantieni tensione sugli ischiocrurali e schiena stabile."},
-      {id:"v2", name:"Leg Press",                      sets:3, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:150, muscle:"Quadricipiti", tip:"RIR 1-2. Puoi spingere molto vicino al limite."},
+      {id:"v2", name:"Pendulum Squat",                  sets:3, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:150, muscle:"Quadricipiti", tip:"RIR 1-2. Il movimento guidato permette di spingere vicino al limite con buon controllo del ginocchio."},
       {id:"v3", name:"Bulgarian Split Squat / Affondi", sets:3, reps:"8-12", load:"medium", loadTxt:"Medio-pesante", rest:120, muscle:"Quadricipiti", tip:"RIR 1-2. Controllo e stabilità prima del carico."},
       {id:"v4", name:"Leg Curl",                       sets:2, reps:"10-15",load:"light",  loadTxt:"Medio",         rest:105, muscle:"Femorali",     tip:"RIR 0-2."},
       {id:"v5", name:"Calf Raise",                     sets:3, reps:"10-15",load:"medium", loadTxt:"Medio-pesante", rest:105, muscle:"Polpacci",     tip:"RIR 1-2."},
@@ -354,29 +362,44 @@ function session(create=false){
   if(!db.sessions[k] && create) db.sessions[k] = {};
   return db.sessions[k] || {};
 }
-function exData(ex, create=false){
-  const s = session(create);
-  if(!s[ex.id] && create) s[ex.id] = Array.from({length:ex.sets}, () => ({w:"",r:"",d:false}));
-  return s[ex.id] || null;
+// Normalizza i dati "vecchio formato" (array di serie) in {variant, sets}
+function normalizeRaw(ex, raw){
+  if(!raw) return null;
+  if(Array.isArray(raw)) return {variant: ex.name, sets: raw};
+  return raw;
 }
-function lastPerformance(exId){
+// Ritorna {variant, sets} per l'esercizio nella sessione corrente
+function exEntry(ex, create=false){
+  const s = session(create);
+  let raw = normalizeRaw(ex, s[ex.id]);
+  if(!raw && create){
+    raw = {variant: ex.name, sets: Array.from({length:ex.sets}, () => ({w:"",r:"",d:false}))};
+  }
+  if(raw && create) s[ex.id] = raw;
+  return raw;
+}
+function lastPerformance(ex, variant){
   const db = Store.load();
   const keys = Object.keys(db.sessions)
-    .filter(k => k !== sessionKey() && db.sessions[k][exId]
-      && db.sessions[k][exId].some(s => s.d || s.w || s.r))
+    .filter(k => k !== sessionKey())
+    .filter(k => {
+      const raw = normalizeRaw(ex, db.sessions[k][ex.id]);
+      return raw && raw.variant === variant && raw.sets.some(s => s.d || s.w || s.r);
+    })
     .sort().reverse();
   if(!keys.length) return null;
-  return { date: keys[0].split("__")[0], sets: db.sessions[keys[0]][exId] };
+  const raw = normalizeRaw(ex, db.sessions[keys[0]][ex.id]);
+  return { date: keys[0].split("__")[0], sets: raw.sets };
 }
-function bestWeightBefore(exId){
+function bestWeightBefore(ex, variant){
   const db = Store.load();
   const curKey = sessionKey();
   let best = null;
   Object.keys(db.sessions).forEach(k => {
     if(k === curKey) return;
-    const s = db.sessions[k][exId];
-    if(!s) return;
-    s.forEach(set => {
+    const raw = normalizeRaw(ex, db.sessions[k][ex.id]);
+    if(!raw || raw.variant !== variant) return;
+    raw.sets.forEach(set => {
       const w = parseFloat(set.w);
       if(set.d && !isNaN(w) && (best === null || w > best)) best = w;
     });
@@ -391,9 +414,9 @@ function parseRepRange(reps){
   return parts.length === 2 ? parts : [parts[0], parts[0]];
 }
 function roundHalf(n){ return Math.round(n*2)/2; }
-function suggestion(ex){
+function suggestion(ex, variant){
   if(ex.unit === "sec") return null;
-  const last = lastPerformance(ex.id);
+  const last = lastPerformance(ex, variant);
   if(!last) return null;
   const completed = last.sets.filter(s => s.w !== "" && s.r !== "");
   if(!completed.length) return null;
@@ -429,13 +452,16 @@ function renderList(){
   $("dayNote").innerHTML = d.note ? `<div class="note-day">${d.note}</div>` : "";
 
   $("list").innerHTML = d.ex.map(ex => {
-    const rows = exData(ex) || Array.from({length:ex.sets},()=>({w:"",r:"",d:false}));
-    const last = lastPerformance(ex.id);
-    const best = bestWeightBefore(ex.id);
+    const entry = exEntry(ex);
+    const rows = entry ? entry.sets : Array.from({length:ex.sets},()=>({w:"",r:"",d:false}));
+    const variant = entry ? entry.variant : ex.name;
+    const isAlt = variant !== ex.name;
+    const last = lastPerformance(ex, variant);
+    const best = bestWeightBefore(ex, variant);
     const allDone = rows.length && rows.every(s => s.d);
     const unit = ex.unit === "sec" ? "sec" : "kg";
     const wPh = ex.bw ? "zav." : "kg";
-    const sugg = suggestion(ex);
+    const sugg = suggestion(ex, variant);
 
     const setRows = rows.map((s,i) => {
       const w = parseFloat(s.w);
@@ -454,12 +480,14 @@ function renderList(){
       <div class="ex-head">
         <div class="t">
           <div class="ex-name">${ex.name}</div>
+          ${isAlt ? `<div class="variant-tag">Oggi: ${variant}</div>` : ""}
           <div class="ex-meta">
             <span class="num">${ex.sets}×${ex.reps}</span>
             <span><i class="dot ${ex.load}"></i>${ex.loadTxt}</span>
             <span>⏱ ${fmt(ex.rest)}</span>
           </div>
         </div>
+        <button class="info-btn" data-variant="${ex.id}" aria-label="Cambia variante">⇄</button>
         <button class="info-btn" data-tip="${ex.id}">i</button>
       </div>
       <div class="tip" id="tip-${ex.id}">${ex.tip}</div>
@@ -467,7 +495,7 @@ function renderList(){
       <div class="sets">
         <div class="set-head"><span></span><span>${unit==="sec"?"zav.":"Carico (kg)"}</span><span>${unit==="sec"?"Secondi":"Reps"}</span><span></span></div>
         ${setRows}
-        ${last ? `<div class="last">Ultima volta (${dmy(last.date)}): ${last.sets.filter(s=>s.w||s.r).map(s=>`${s.w||"–"}×${s.r||"–"}`).join("  ·  ")||"—"}</div>` : ""}
+        ${last ? `<div class="last">Ultima volta (${dmy(last.date)}${isAlt?" · "+variant:""}): ${last.sets.filter(s=>s.w||s.r).map(s=>`${s.w||"–"}×${s.r||"–"}`).join("  ·  ")||"—"}</div>` : ""}
         <div class="set-actions">
           <button class="mini" data-add="${ex.id}">+ serie</button>
           <button class="mini" data-del="${ex.id}">– serie</button>
@@ -481,10 +509,10 @@ function renderList(){
 }
 
 function updateProgress(){
-  const s = session();
   let done = 0, tot = 0;
   day().ex.forEach(ex => {
-    const rows = s[ex.id] || Array.from({length:ex.sets},()=>({d:false}));
+    const entry = exEntry(ex);
+    const rows = entry ? entry.sets : Array.from({length:ex.sets},()=>({d:false}));
     tot += rows.length;
     done += rows.filter(r => r.d).length;
   });
@@ -505,6 +533,9 @@ document.addEventListener("click", e => {
   const info = e.target.closest("[data-tip]");
   if(info){ $("tip-"+info.dataset.tip).classList.toggle("open"); return; }
 
+  const variantBtn = e.target.closest("[data-variant]");
+  if(variantBtn){ openVariantPicker(variantBtn.dataset.variant); return; }
+
   const chk = e.target.closest(".chk");
   if(chk){ toggleSet(chk.closest(".set-row")); return; }
 
@@ -522,14 +553,15 @@ document.addEventListener("input", e => {
   const row = e.target.closest(".set-row");
   if(!row) return;
   const ex = day().ex.find(x => x.id === row.dataset.ex);
-  const rows = exData(ex, true);
-  rows[+row.dataset.i][e.target.classList.contains("w") ? "w" : "r"] = e.target.value;
+  const entry = exEntry(ex, true);
+  entry.sets[+row.dataset.i][e.target.classList.contains("w") ? "w" : "r"] = e.target.value;
   Store.save();
 });
 
 function toggleSet(row){
   const ex = day().ex.find(x => x.id === row.dataset.ex);
-  const rows = exData(ex, true);
+  const entry = exEntry(ex, true);
+  const rows = entry.sets;
   const i = +row.dataset.i;
   const s = rows[i];
   s.d = !s.d;
@@ -537,14 +569,15 @@ function toggleSet(row){
   if(s.d){
     if(!s.w && !s.r){
       const prev = rows.slice(0,i).reverse().find(x => x.w || x.r);
-      const last = lastPerformance(ex.id);
+      const last = lastPerformance(ex, entry.variant);
       const src = prev || (last && last.sets[i]) || null;
       if(src){ s.w = src.w || ""; s.r = src.r || ""; }
     }
-    const best = bestWeightBefore(ex.id);
+    const best = bestWeightBefore(ex, entry.variant);
     const w = parseFloat(s.w);
     if(best !== null && !isNaN(w) && w > best){
-      showToast(`🏆 Nuovo record su ${ex.name}: ${w} kg`);
+      const label = entry.variant !== ex.name ? `${ex.name} (${entry.variant})` : ex.name;
+      showToast(`🏆 Nuovo record su ${label}: ${w} kg`);
     }
     startTimer(ex.rest, ex.name);
   }
@@ -554,7 +587,8 @@ function toggleSet(row){
 
 function changeSets(exId, delta){
   const ex = day().ex.find(x => x.id === exId);
-  const rows = exData(ex, true);
+  const entry = exEntry(ex, true);
+  const rows = entry.sets;
   if(delta > 0 && rows.length < 10) rows.push({w:"",r:"",d:false});
   if(delta < 0 && rows.length > 1) rows.pop();
   Store.save();
@@ -714,31 +748,79 @@ function buildChart(points){
 function openHistory(exId){
   const ex = day().ex.find(x => x.id === exId);
   const db = Store.load();
-  const keys = Object.keys(db.sessions)
-    .filter(k => db.sessions[k][exId] && db.sessions[k][exId].some(s => s.w || s.r))
-    .sort();
+  const entries = Object.keys(db.sessions)
+    .map(k => ({k, raw: normalizeRaw(ex, db.sessions[k][exId])}))
+    .filter(x => x.raw && x.raw.sets.some(s => s.w || s.r))
+    .sort((a,b) => a.k.localeCompare(b.k));
 
-  const chartPoints = keys.map(k => {
-    const weights = db.sessions[k][exId].map(s => parseFloat(s.w)).filter(n => !isNaN(n));
-    return weights.length ? {date:k.split("__")[0], value: Math.max(...weights)} : null;
+  const todayEntry = exEntry(ex);
+  const refVariant = todayEntry ? todayEntry.variant : ex.name;
+
+  const chartPoints = entries.filter(x => x.raw.variant === refVariant).map(x => {
+    const weights = x.raw.sets.map(s => parseFloat(s.w)).filter(n => !isNaN(n));
+    return weights.length ? {date:x.k.split("__")[0], value: Math.max(...weights)} : null;
   }).filter(Boolean);
 
-  const rows = keys.slice().reverse().slice(0,12).map(k => {
-    const sets = db.sessions[k][exId].filter(s => s.w || s.r);
+  const rows = entries.slice().reverse().slice(0,12).map(x => {
+    const sets = x.raw.sets.filter(s => s.w || s.r);
     const weights = sets.map(s=>parseFloat(s.w)).filter(n=>!isNaN(n));
     const topW = weights.length ? Math.max(...weights) : null;
-    const bestSoFar = Math.max(...chartPoints.filter(p=>p.date<=k.split("__")[0]).map(p=>p.value), -Infinity);
-    const isPR = topW !== null && topW === bestSoFar && chartPoints.filter(p=>p.value===topW)[0]?.date === k.split("__")[0];
+    const date = x.k.split("__")[0];
+    let isPR = false;
+    if(topW !== null && x.raw.variant === refVariant){
+      const bestSoFar = Math.max(...chartPoints.filter(p=>p.date<=date).map(p=>p.value), -Infinity);
+      isPR = topW === bestSoFar && chartPoints.find(p=>p.value===topW)?.date === date;
+    }
     const setsTxt = sets.map(s => `${s.w||"–"}×${s.r||"–"}`).join("  ·  ");
-    const vol = db.sessions[k][exId].reduce((a,s)=> a + (parseFloat(s.w)||0)*(parseFloat(s.r)||0), 0);
-    return `<div class="hist"><b>${k.split("__")[0].split("-").reverse().join("/")}</b>${isPR?'<span class="pr-tag">🏆 PR</span>':''}
+    const vol = x.raw.sets.reduce((a,s)=> a + (parseFloat(s.w)||0)*(parseFloat(s.r)||0), 0);
+    const variantTag = x.raw.variant !== ex.name ? `<span class="pr-tag" style="color:var(--muted)">· ${x.raw.variant}</span>` : "";
+    return `<div class="hist"><b>${date.split("-").reverse().join("/")}</b>${isPR?'<span class="pr-tag">🏆 PR</span>':''}${variantTag}
             <p>${setsTxt}${vol?`  <span style="color:var(--muted)">· volume ${Math.round(vol)} kg</span>`:""}</p></div>`;
   }).join("");
 
-  openSheet(`<h2>${ex.name}</h2><div class="sub">Ultimi allenamenti registrati</div>
+  openSheet(`<h2>${ex.name}</h2><div class="sub">Ultimi allenamenti registrati${refVariant!==ex.name?` · grafico su "${refVariant}"`:""}</div>
     ${buildChart(chartPoints)}
     ${rows || '<div class="empty">Nessun dato ancora. Compila i campi e spunta le serie: da qui in poi vedrai i progressi.</div>'}
     <button class="big-btn" onclick="closeSheet()">Chiudi</button>`);
+}
+
+/* ---------- Varianti / sostituzioni esercizio ---------- */
+function openVariantPicker(exId){
+  const ex = day().ex.find(x => x.id === exId);
+  const entry = exEntry(ex, true);
+  const options = [ex.name, ...(ex.variants || [])];
+  const chips = options.map(v =>
+    `<button class="variant-chip ${v===entry.variant?"active":""}" data-pick="${encodeURIComponent(v)}">${v}</button>`
+  ).join("");
+
+  openSheet(`<h2>${ex.name}</h2><div class="sub">Quale variante fai oggi? Il focus resta lo stesso, ma i carichi vengono tracciati separatamente.</div>
+    <div class="variant-list">${chips}</div>
+    <div style="margin-top:14px">
+      <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:6px">Altro esercizio</label>
+      <input id="customVariant" type="text" placeholder="Scrivi il nome..." style="width:100%;height:46px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);padding:0 12px;font-size:.95rem;color:var(--text)">
+      <button class="big-btn primary" id="applyCustomVariant">Usa questo nome</button>
+    </div>
+    <button class="big-btn" onclick="closeSheet()">Annulla</button>`);
+
+  document.querySelectorAll("[data-pick]").forEach(b => {
+    b.onclick = () => applyVariant(exId, decodeURIComponent(b.dataset.pick));
+  });
+  $("applyCustomVariant").onclick = () => {
+    const val = $("customVariant").value.trim();
+    if(val) applyVariant(exId, val);
+  };
+}
+function applyVariant(exId, variantName){
+  const ex = day().ex.find(x => x.id === exId);
+  const entry = exEntry(ex, true);
+  if(entry.variant === variantName){ closeSheet(); return; }
+  const hasData = entry.sets.some(s => s.w || s.r || s.d);
+  if(hasData && !confirm("Cambiare variante azzera le serie già inserite oggi per questo esercizio. Continuare?")) return;
+  entry.variant = variantName;
+  entry.sets = Array.from({length: ex.sets}, () => ({w:"",r:"",d:false}));
+  Store.save();
+  closeSheet();
+  renderList();
 }
 
 function isoWeekRange(dateStr){
@@ -759,7 +841,9 @@ function weeklySets(dateStr){
     Object.keys(s).forEach(exId => {
       const muscle = MUSCLE_OF[exId];
       if(!muscle) return;
-      totals[muscle] += s[exId].filter(x => x.d).length;
+      const raw = s[exId];
+      const setsArr = Array.isArray(raw) ? raw : (raw && raw.sets) || [];
+      totals[muscle] += setsArr.filter(x => x.d).length;
     });
   });
   return {start, end, totals};
@@ -785,7 +869,9 @@ $("btnSettings").onclick = () => {
   const n = Object.keys(db.sessions).length;
   openSheet(`<h2>Impostazioni</h2>
     <div class="sub">${n} allenamenti salvati su questo telefono${Store.persistent?"":" (solo per questa sessione)"}</div>
-    <button class="big-btn primary" onclick="exportData()">Salva backup (.json)</button>
+    <button class="big-btn primary" onclick="exportMarkdown()">Esporta scheda (Markdown)</button>
+    <p class="warn" style="margin-top:4px">Il piano di allenamento in testo semplice — copiato negli appunti e scaricato, pronto da incollare a un'AI o condividere.</p>
+    <button class="big-btn" onclick="exportData()">Salva backup dati (.json)</button>
     <button class="big-btn" onclick="importData()">Importa backup</button>
     <button class="big-btn danger" onclick="resetDay()">Azzera l'allenamento di oggi</button>
     <button class="big-btn danger" onclick="wipe()">Cancella tutto lo storico</button>
@@ -794,6 +880,33 @@ $("btnSettings").onclick = () => {
       : "Questo browser non sta salvando i dati in modo permanente: apri il file da una pagina web (non da file://) o usa il backup manuale."}</p>
     <button class="big-btn" onclick="closeSheet()">Chiudi</button>`);
 };
+
+function buildMarkdownExport(){
+  let md = `# Scheda Palestra\n\n`;
+  PROGRAM.forEach(d => {
+    md += `## ${d.title} — ${d.sub}\n\n`;
+    if(d.note) md += `> ${d.note}\n\n`;
+    md += `| Esercizio | Serie × Reps | Carico | Recupero | Indicazione |\n|---|---|---|---|---|\n`;
+    d.ex.forEach(ex => {
+      const variants = ex.variants && ex.variants.length ? ` (varianti: ${ex.variants.join(", ")})` : "";
+      const note = ex.tip.replace(/\|/g, "-");
+      md += `| ${ex.name}${variants} | ${ex.sets}×${ex.reps} | ${ex.loadTxt} | ${fmt(ex.rest)} | ${note} |\n`;
+    });
+    md += "\n";
+  });
+  return md;
+}
+function exportMarkdown(){
+  const md = buildMarkdownExport();
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(md).then(() => showToast("Markdown copiato negli appunti")).catch(() => {});
+  }
+  const blob = new Blob([md], {type:"text/markdown"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "scheda-palestra.md";
+  a.click();
+}
 
 function exportData(){
   const blob = new Blob([JSON.stringify(Store.load())], {type:"application/json"});
