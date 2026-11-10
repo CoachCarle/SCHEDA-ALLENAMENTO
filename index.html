@@ -577,12 +577,12 @@ const PROGRAM = [
     sub: "Lunedì · 19:00 - 20:30 · V-Shape & Massa",
     note: "Focus V-Shape: trazioni pesanti e lavoro sul gran dorsale e petto. RIR 1-2 per stimolare la crescita senza cedimento precoce.",
     ex: [
-      {id:"l1", name:"Trazioni alla sbarra", sets:4, reps:"6-10", load:"heavy", loadTxt:"RIR 1-2", rest:150, muscle:"Dorso", eq:"bw", bw:true, variants:["Lat Machine presa prona larga"], tip:"Presa prona, poco oltre le spalle. RIR 1-2. Quando superi le 10 ripetizioni, aggiungi zavorra (+2.5 o +5 kg)."},
-      {id:"l2", name:"Spinte manubri 30°", sets:3, reps:"6-10", load:"heavy", loadTxt:"RIR 1-2", rest:150, muscle:"Petto", eq:"dumbbell", variants:["Smith Machine 30°"], tip:"RIR 1-2. Scapole addotte e depresse, gomiti a circa 45° rispetto al busto per proteggere le spalle."},
-      {id:"l3", name:"T-bar con appoggio", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1-2", rest:120, muscle:"Dorso", eq:"machine", variants:["Rematore supporto toracico", "Seal Row"], tip:"Presa larga. Focus schiena alta: gomiti aperti, porta i gomiti dietro contraendo bene i romboidi."},
-      {id:"l4", name:"Dips (busto inclinato avanti)", sets:3, reps:"8-12", load:"heavy", loadTxt:"RIR 1-2", rest:120, muscle:"Petto", eq:"bw", bw:true, variants:["Decline Chest Press"], tip:"RIR 1-2. Busto inclinato in avanti per colpire il petto basso. Se superi 12 ripetizioni aggiungi zavorra."},
-      {id:"l5", name:"Alzate laterali ai cavi", sets:4, reps:"12-20", load:"light", loadTxt:"RIR 0-1", rest:90, muscle:"Spalle", eq:"cable", variants:["Alzate laterali manubri"], tip:"RIR 0-1. Gomito leggermente flesso, niente slancio: tensione continua sul deltoide laterale per allargare la silhouette."},
-      {id:"l6", name:"Crunch al cavo", sets:3, reps:"10-15", load:"light", loadTxt:"RIR 1-2", rest:90, muscle:"Core", eq:"cable", tip:"RIR 1-2. Carico moderato: addominali troppo ipertrofici allargano il punto vita e ostacolano il V-shape."}
+      {id:"lun_trazioni", name:"Trazioni alla sbarra", sets:4, reps:"6-10", load:"heavy", loadTxt:"RIR 1-2", rest:150, muscle:"Dorso", eq:"bw", bw:true, variants:["Lat Machine presa prona larga"], tip:"Presa prona, poco oltre le spalle. RIR 1-2. Quando superi le 10 ripetizioni, aggiungi zavorra (+2.5 o +5 kg)."},
+      {id:"lun_spinte_manubri", name:"Spinte manubri 30°", sets:3, reps:"6-10", load:"heavy", loadTxt:"RIR 1-2", rest:150, muscle:"Petto", eq:"dumbbell", variants:["Smith Machine 30°"], tip:"RIR 1-2. Scapole addotte e depresse, gomiti a circa 45° rispetto al busto per proteggere le spalle."},
+      {id:"lun_tbar", name:"T-bar con appoggio", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1-2", rest:120, muscle:"Dorso", eq:"machine", variants:["Rematore supporto toracico", "Seal Row"], tip:"Presa larga. Focus schiena alta: gomiti aperti, porta i gomiti dietro contraendo bene i romboidi."},
+      {id:"lun_dips", name:"Dips (busto inclinato avanti)", sets:3, reps:"8-12", load:"heavy", loadTxt:"RIR 1-2", rest:120, muscle:"Petto", eq:"bw", bw:true, variants:["Decline Chest Press"], tip:"RIR 1-2. Busto inclinato in avanti per colpire il petto basso. Se superi 12 ripetizioni aggiungi zavorra."},
+      {id:"lun_alzate_cavi", name:"Alzate laterali ai cavi", sets:4, reps:"12-20", load:"light", loadTxt:"RIR 0-1", rest:90, muscle:"Spalle", eq:"cable", variants:["Alzate laterali manubri"], tip:"RIR 0-1. Gomito leggermente flesso, niente slancio: tensione continua sul deltoide laterale per allargare la silhouette."},
+      {id:"lun_crunch_cavo", name:"Crunch al cavo", sets:3, reps:"10-15", load:"light", loadTxt:"RIR 1-2", rest:90, muscle:"Core", eq:"cable", tip:"RIR 1-2. Carico moderato: addominali troppo ipertrofici allargano il punto vita e ostacolano il V-shape."}
     ]
   },
   {
@@ -593,12 +593,11 @@ const PROGRAM = [
     sub: "Martedì · 19:00 - 20:30 · Forza & Massa",
     note: "Se Hack Squat dà fastidio al ginocchio, usa il tasto '⇄' per passare subito a Split Squat o Step-up basso.",
     ex: [
-      {id:"m1", name:"Leg curl leggero (riscaldamento)", sets:2, reps:"15", load:"light", loadTxt:"RIR 4+", rest:60, muscle:"Femorali", eq:"machine", tip:"RIR 4+. Serie di riscaldamento articolare per le ginocchia: resta molto lontano dal cedimento."},
-      {id:"m2", name:"Hack squat", sets:4, reps:"6-8", load:"heavy", loadTxt:"RIR 2", rest:180, muscle:"Quadricipiti", eq:"machine", variants:["Split squat con manubri", "Step-up basso"], tip:"RIR 2. Alla prima seduta prova con poco carico: se dà fastidio al ginocchio, sostituisci con split squat o step-up basso."},
-      {id:"m3", name:"Leg curl seduto", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1", rest:120, muscle:"Femorali", eq:"machine", tip:"RIR 1. Ottimo allungamento dei femorali, controlla la fase eccentrica in discesa."},
-      {id:"m4", name:"Leg extension", sets:3, reps:"10-15", load:"light", loadTxt:"RIR 0-1", rest:90, muscle:"Quadricipiti", eq:"machine", tip:"RIR 0-1. Tensione continua sui quadricipiti senza affaticare la colonna."},
-      {id:"m5", name:"Adductor (interno coscia)", sets:2, reps:"12-15", load:"light", loadTxt:"RIR 1", rest:90, muscle:"Adduttori", eq:"machine", tip:"RIR 1. Movimento controllato, 1 secondo di pausa in massima chiusura."},
-      {id:"m6", name:"Calf raise in piedi", sets:4, reps:"10-15", load:"medium", loadTxt:"RIR 1", rest:90, muscle:"Polpacci", eq:"machine", tip:"RIR 1. Pausa in massimo allungamento in basso per togliere l'effetto molla del tendine d'Achille."}
+      {id:"mar_leg_curl_seduto", name:"Leg curl seduto", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1", rest:120, muscle:"Femorali", eq:"machine", tip:"RIR 1. Ottimo allungamento dei femorali, controlla la fase eccentrica in discesa."},
+      {id:"mar_hack_squat", name:"Hack squat", sets:4, reps:"6-8", load:"heavy", loadTxt:"RIR 2", rest:180, muscle:"Quadricipiti", eq:"machine", variants:["Split squat con manubri", "Step-up basso"], tip:"RIR 2. Alla prima seduta prova con poco carico: se dà fastidio al ginocchio, sostituisci con split squat o step-up basso."},
+      {id:"mar_leg_extension", name:"Leg extension", sets:3, reps:"10-15", load:"light", loadTxt:"RIR 0-1", rest:90, muscle:"Quadricipiti", eq:"machine", tip:"RIR 0-1. Tensione continua sui quadricipiti senza affaticare la colonna."},
+      {id:"mar_adductor", name:"Adductor (interno coscia)", sets:2, reps:"12-15", load:"light", loadTxt:"RIR 1", rest:90, muscle:"Adduttori", eq:"machine", tip:"RIR 1. Movimento controllato, 1 secondo di pausa in massima chiusura."},
+      {id:"mar_calf_in_piedi", name:"Calf raise in piedi", sets:4, reps:"10-15", load:"medium", loadTxt:"RIR 1", rest:90, muscle:"Polpacci", eq:"machine", tip:"RIR 1. Pausa in massimo allungamento in basso per togliere l'effetto molla del tendine d'Achille."}
     ]
   },
   {
@@ -609,13 +608,13 @@ const PROGRAM = [
     sub: "Giovedì · 19:00 - 20:30 · V-Shape & Braccia",
     note: "Focus sui dorsali e deltoidi. Il superset bicipiti e tricipiti è diviso in 2 voci consecutive per permetterti di segnare carichi distinti.",
     ex: [
-      {id:"g1", name:"Lat machine presa larga", sets:4, reps:"8-12", load:"heavy", loadTxt:"RIR 1-2", rest:120, muscle:"Dorso", eq:"machine", variants:["Lat Machine presa neutra"], tip:"RIR 1-2. Tira verso la parte alta del petto, non oltre. Gomiti che tirano verso il basso."},
-      {id:"g2", name:"Chest press", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1-2", rest:120, muscle:"Petto", eq:"machine", tip:"RIR 1-2. Spinta solida e controllata."},
-      {id:"g3", name:"Rematore al cavo basso", sets:3, reps:"10-12", load:"medium", loadTxt:"RIR 1-2", rest:120, muscle:"Dorso", eq:"cable", variants:["Pulley presa stretta"], tip:"Presa neutra. Focus dorsali: gomiti vicini al busto, tira verso l'ombelico."},
-      {id:"g4", name:"Alzate laterali con manubri", sets:4, reps:"12-20", load:"light", loadTxt:"RIR 0-1", rest:90, muscle:"Spalle", eq:"dumbbell", tip:"RIR 0-1. Controllo del carico e traiettoria pulita."},
-      {id:"g5", name:"Reverse pec deck (o face pull)", sets:3, reps:"12-20", load:"light", loadTxt:"RIR 1", rest:90, muscle:"Spalle", eq:"machine", variants:["Face pull ai cavi"], tip:"RIR 1. Deltoidi posteriori e postura scapolare."},
-      {id:"g6", name:"Curl bicipiti (Superset 1/2)", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1-2", rest:15, muscle:"Bicipiti", eq:"dumbbell", variants:["Curl al cavo", "Curl bilanciere sagomato"], tip:"RIR 1-2. Superset muscoli antagonisti: finita la serie passa subito al pushdown tricipiti."},
-      {id:"g7", name:"Pushdown tricipiti (Superset 2/2)", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1-2", rest:120, muscle:"Tricipiti", eq:"cable", variants:["French press cavi"], tip:"RIR 1-2. Il recupero di 2' scatta adesso, dopo aver concluso la coppia di esercizi."}
+      {id:"gio_lat_machine", name:"Lat machine presa larga", sets:4, reps:"8-12", load:"heavy", loadTxt:"RIR 1-2", rest:120, muscle:"Dorso", eq:"machine", variants:["Lat Machine presa neutra"], tip:"RIR 1-2. Tira verso la parte alta del petto, non oltre. Gomiti che tirano verso il basso."},
+      {id:"gio_chest_press", name:"Chest press", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1-2", rest:120, muscle:"Petto", eq:"machine", tip:"RIR 1-2. Spinta solida e controllata."},
+      {id:"gio_rematore_cavo", name:"Rematore al cavo basso", sets:3, reps:"10-12", load:"medium", loadTxt:"RIR 1-2", rest:120, muscle:"Dorso", eq:"cable", variants:["Pulley presa stretta"], tip:"Presa neutra. Focus dorsali: gomiti vicini al busto, tira verso l'ombelico."},
+      {id:"gio_alzate_manubri", name:"Alzate laterali con manubri", sets:4, reps:"12-20", load:"light", loadTxt:"RIR 0-1", rest:90, muscle:"Spalle", eq:"dumbbell", tip:"RIR 0-1. Controllo del carico e traiettoria pulita."},
+      {id:"gio_reverse_pec_deck", name:"Reverse pec deck (o face pull)", sets:3, reps:"12-20", load:"light", loadTxt:"RIR 1", rest:90, muscle:"Spalle", eq:"machine", variants:["Face pull ai cavi"], tip:"RIR 1. Deltoidi posteriori e postura scapolare."},
+      {id:"gio_curl_bicipiti", name:"Curl bicipiti (Superset 1/2)", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1-2", rest:15, muscle:"Bicipiti", eq:"dumbbell", variants:["Curl al cavo", "Curl bilanciere sagomato"], tip:"RIR 1-2. Superset muscoli antagonisti: finita la serie passa subito al pushdown tricipiti."},
+      {id:"gio_pushdown_tricipiti", name:"Pushdown tricipiti (Superset 2/2)", sets:3, reps:"8-12", load:"medium", loadTxt:"RIR 1-2", rest:120, muscle:"Tricipiti", eq:"cable", variants:["French press cavi"], tip:"RIR 1-2. Il recupero di 2' scatta adesso, dopo aver concluso la coppia di esercizi."}
     ]
   },
   {
@@ -624,14 +623,17 @@ const PROGRAM = [
     tabSub: "Gambe & Core",
     title: "Gambe Leggere, Schiena Bassa & Addome",
     sub: "Venerdì · 19:00 - 20:30 · Catena Posteriore & Spalle",
-    note: "Volume gambe leggero, lavoro su erettori/catena posteriore e terzo richiamo settimanale per le spalle.",
+    note: "Volume gambe leggero, richiamo petto (Pec Deck), superset braccia e lavoro su catena posteriore e spalle.",
     ex: [
-      {id:"v1", name:"Split squat bulgaro (o step-up)", sets:3, reps:"8-10", load:"medium", loadTxt:"RIR 2", rest:120, muscle:"Quadricipiti", eq:"dumbbell", variants:["Step-up basso"], tip:"RIR 2. 8-10 ripetizioni per gamba. Se senti fastidio al ginocchio passa allo step-up basso."},
-      {id:"v2", name:"Leg curl sdraiato", sets:3, reps:"10-12", load:"medium", loadTxt:"RIR 1", rest:120, muscle:"Femorali", eq:"machine", tip:"RIR 1. Variante diversa dal martedì (sdraiato anziché seduto)."},
-      {id:"v3", name:"Calf seduto", sets:3, reps:"12-15", load:"medium", loadTxt:"RIR 1", rest:90, muscle:"Polpacci", eq:"machine", tip:"RIR 1. Lavoro isolato sul muscolo soleo."},
-      {id:"v4", name:"Alzate laterali ai cavi", sets:3, reps:"15-20", load:"light", loadTxt:"RIR 0-1", rest:60, muscle:"Spalle", eq:"cable", tip:"RIR 0-1. Terzo giorno per le spalle: stimolo frequente per la massima larghezza visiva."},
-      {id:"v5", name:"Hyperextension", sets:3, reps:"10-15", load:"light", loadTxt:"RIR 2", rest:120, muscle:"Lombari", eq:"bw", bw:true, tip:"RIR 2. Schiena leggermente arrotondata, scendi lentamente, sali fino ad allineare il corpo senza iperestendere. Quando è facile, tieni un disco al petto."},
-      {id:"v6", name:"Crunch al cavo", sets:3, reps:"10-15", load:"light", loadTxt:"RIR 1-2", rest:90, muscle:"Core", eq:"cable", tip:"RIR 1-2. Carico moderato."}
+      {id:"ven_split_squat", name:"Split squat bulgaro (o step-up)", sets:3, reps:"8-10", load:"medium", loadTxt:"RIR 2", rest:120, muscle:"Quadricipiti", eq:"dumbbell", variants:["Step-up basso"], tip:"RIR 2. 8-10 ripetizioni per gamba. Se senti fastidio al ginocchio passa allo step-up basso."},
+      {id:"ven_leg_curl_sdraiato", name:"Leg curl sdraiato", sets:2, reps:"10-12", load:"medium", loadTxt:"RIR 1", rest:120, muscle:"Femorali", eq:"machine", tip:"RIR 1. Variante diversa dal martedì (sdraiato anziché seduto). Ridotto a 2 serie."},
+      {id:"ven_calf_seduto", name:"Calf seduto", sets:3, reps:"12-15", load:"medium", loadTxt:"RIR 1", rest:90, muscle:"Polpacci", eq:"machine", tip:"RIR 1. Lavoro isolato sul muscolo soleo."},
+      {id:"ven_pec_deck", name:"Pec deck o croci ai cavi", sets:3, reps:"12-15", load:"light", loadTxt:"RIR 1", rest:90, muscle:"Petto", eq:"machine", variants:["Croci ai cavi"], tip:"RIR 1. Esercizio di apertura: controlla bene la fase eccentrica in cui il muscolo si allunga."},
+      {id:"ven_curl_inclinato", name:"Curl inclinato ai manubri (Superset 1/2)", sets:3, reps:"10-15", load:"medium", loadTxt:"RIR 1-2", rest:15, muscle:"Bicipiti", eq:"dumbbell", variants:["Curl su panca inclinata"], tip:"RIR 1-2. Ottimo allungamento del capo lungo del bicipite. Finita la serie passa subito alle estensioni tricipiti."},
+      {id:"ven_estensioni_tricipiti", name:"Estensioni tricipiti sopra la testa (Superset 2/2)", sets:3, reps:"10-15", load:"light", loadTxt:"RIR 1-2", rest:120, muscle:"Tricipiti", eq:"cable", variants:["Estensioni manubrio sopra la testa"], tip:"RIR 1-2. Focus capo lungo dei tricipiti. Il recupero di 2' scatta ora, a coppia conclusa."},
+      {id:"ven_alzate_cavi", name:"Alzate laterali ai cavi", sets:3, reps:"15-20", load:"light", loadTxt:"RIR 0-1", rest:60, muscle:"Spalle", eq:"cable", tip:"RIR 0-1. Terzo giorno per le spalle: stimolo frequente per la massima larghezza visiva."},
+      {id:"ven_hyperextension", name:"Hyperextension", sets:3, reps:"10-15", load:"light", loadTxt:"RIR 2", rest:120, muscle:"Lombari", eq:"bw", bw:true, tip:"RIR 2. Schiena leggermente arrotondata, scendi lentamente, sali fino ad allineare il corpo senza iperestendere. Quando è facile, tieni un disco al petto."},
+      {id:"ven_crunch_cavo", name:"Crunch al cavo", sets:3, reps:"10-15", load:"light", loadTxt:"RIR 1-2", rest:90, muscle:"Core", eq:"cable", tip:"RIR 1-2. Carico moderato."}
     ]
   }
 ];
@@ -641,10 +643,113 @@ const MUSCLE_OF = {};
 PROGRAM.forEach(d => d.ex.forEach(e => MUSCLE_OF[e.id] = e.muscle));
 
 /* =========================================================
-   2. STORAGE LOCALE
+   2. STORAGE LOCALE & MIGRAZIONE SICURA
    ========================================================= */
 const KEY = "palestra_v1";
 const TKEY = "palestra_timer_v1";
+
+function migrateStorage(data){
+  if(!data || !data.sessions) return data;
+  if(data._migrated_v3) return data;
+
+  const nameToNewId = {
+    "trazioni alla sbarra": "lun_trazioni",
+    "spinte manubri 30°": "lun_spinte_manubri",
+    "t-bar con appoggio": "lun_tbar",
+    "dips (busto inclinato avanti)": "lun_dips",
+    "dips": "lun_dips",
+    "dip": "lun_dips",
+    "alzate laterali ai cavi": "lun_alzate_cavi",
+    "alzate laterali cavo": "lun_alzate_cavi",
+    "crunch al cavo": "lun_crunch_cavo",
+    
+    "leg curl seduto": "mar_leg_curl_seduto",
+    "hack squat": "mar_hack_squat",
+    "leg extension": "mar_leg_extension",
+    "adductor (interno coscia)": "mar_adductor",
+    "calf raise in piedi": "mar_calf_in_piedi",
+    "calf raise": "mar_calf_in_piedi",
+
+    "lat machine": "gio_lat_machine",
+    "lat machine presa larga": "gio_lat_machine",
+    "lat machine neutra": "gio_lat_machine",
+    "chest press": "gio_chest_press",
+    "rematore al cavo basso": "gio_rematore_cavo",
+    "low row": "gio_rematore_cavo",
+    "alzate laterali con manubri": "gio_alzate_manubri",
+    "alzate laterali": "gio_alzate_manubri",
+    "reverse pec deck (o face pull)": "gio_reverse_pec_deck",
+    "reverse pec deck / face pull": "gio_reverse_pec_deck",
+    "curl bicipiti (superset 1/2)": "gio_curl_bicipiti",
+    "pushdown tricipiti (superset 2/2)": "gio_pushdown_tricipiti",
+    "pushdown": "gio_pushdown_tricipiti",
+
+    "split squat bulgaro (o step-up)": "ven_split_squat",
+    "bulgarian split squat / affondi": "ven_split_squat",
+    "leg curl sdraiato": "ven_leg_curl_sdraiato",
+    "calf seduto": "ven_calf_seduto",
+    "pec deck o croci ai cavi": "ven_pec_deck",
+    "pec deck / croci": "ven_pec_deck",
+    "curl inclinato ai manubri (superset 1/2)": "ven_curl_inclinato",
+    "estensioni tricipiti sopra la testa (superset 2/2)": "ven_estensioni_tricipiti",
+    "hyperextension": "ven_hyperextension"
+  };
+
+  Object.keys(data.sessions).forEach(k => {
+    const s = data.sessions[k];
+    if(!s || typeof s !== "object") return;
+    const newSession = {};
+
+    Object.keys(s).forEach(key => {
+      const raw = s[key];
+      if(!raw) return;
+      const vName = (raw.variant || "").toLowerCase().trim();
+
+      if(key.startsWith("lun_") || key.startsWith("mar_") || key.startsWith("gio_") || key.startsWith("ven_")){
+        newSession[key] = raw;
+        return;
+      }
+
+      if(vName && nameToNewId[vName]){
+        newSession[nameToNewId[vName]] = raw;
+        return;
+      }
+
+      // Risoluzione dei vecchi ID numerici evitando categoricamente contaminazioni
+      if(key === "l1" && (!vName || vName.includes("spinte"))){
+        newSession["lun_spinte_manubri"] = raw;
+      } else if(key === "l2" && (!vName || vName.includes("lat"))){
+        newSession["gio_lat_machine"] = raw;
+      } else if(key === "l3"){
+        newSession["lun_dips"] = raw;
+      } else if(key === "l5"){
+        newSession["lun_alzate_cavi"] = raw;
+      } else if(key === "m1" && (!vName || vName.includes("squat"))){
+        newSession["mar_hack_squat"] = raw;
+      } else if(key === "m2" && (!vName || vName.includes("curl"))){
+        newSession["mar_leg_curl_seduto"] = raw;
+      } else if(key === "m3"){
+        newSession["mar_leg_extension"] = raw;
+      } else if(key === "m4"){
+        newSession["mar_calf_in_piedi"] = raw;
+      } else if(key === "g4"){
+        newSession["gio_chest_press"] = raw;
+      } else if(key === "g5"){
+        newSession["gio_lat_machine"] = raw;
+      } else if(key === "g7"){
+        newSession["gio_alzate_manubri"] = raw;
+      } else if(key === "g8"){
+        newSession["gio_reverse_pec_deck"] = raw;
+      }
+    });
+
+    data.sessions[k] = newSession;
+  });
+
+  data._migrated_v3 = true;
+  return data;
+}
+
 const Store = (() => {
   let mem = null, ok = true;
   try { localStorage.setItem("__t","1"); localStorage.removeItem("__t"); }
@@ -653,7 +758,11 @@ const Store = (() => {
     persistent: ok,
     load(){
       if(mem) return mem;
-      try{ mem = JSON.parse(localStorage.getItem(KEY)) || {sessions:{}}; }
+      try{
+        mem = JSON.parse(localStorage.getItem(KEY)) || {sessions:{}};
+        mem = migrateStorage(mem);
+        this.save();
+      }
       catch(e){ mem = {sessions:{}}; }
       if(!mem.sessions) mem.sessions = {};
       return mem;
@@ -688,6 +797,9 @@ function exEntry(ex, create=false){
   let raw = normalizeRaw(ex, s[ex.id]);
   if(!raw && create){
     raw = {variant: ex.name, sets: Array.from({length:ex.sets}, () => ({w:"",r:"",d:false}))};
+  }
+  if(raw && !raw.sets){
+    raw.sets = Array.from({length:ex.sets}, () => ({w:"",r:"",d:false}));
   }
   if(raw && create) s[ex.id] = raw;
   return raw;
